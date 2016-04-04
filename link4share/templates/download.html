@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block title %}{{ data.judul }}{% endblock %}
+{% block content %}
+
+<style type="text/css">
+ 
+#share-buttons img {
+width: 50px;
+padding: 5px;
+border: 0;
+box-shadow: 0;
+display: inline;
+cursor: pointer;
+}
+ 
+</style>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+                    <h2 class="post-title">
+                        Download {{ data.name }}
+                    </h2>
+                    <p class="post-meta">
+                        {% if data.directlink==False %}
+                        <p class="info">Download link from avaget, direct link under maintenance. </p>
+                        {% endif %}
+                        <ul style="border: 2px solid #e9e6c4;padding-bottom: 20px;">
+                            <li>
+                                <h4>{{ data.name }}</h4>
+                                Upload Date : {{ data.date }} <br/>
+                                Size : {{ data.size }}<br/>
+                                Hash : {{ data.md5 }} <br/>
+                                <a href="{{ data.download }}" class="btn btn-success" target="_blank">Download Now</a>
+                            </li>
+                        </ul>
+                        Share it at:
+                        <div id="share-buttons">
+                            <!-- Facebook -->
+                            <a href="http://www.facebook.com/sharer.php?u={{ request.url }}" target="_blank" rel="nofollow">
+                                <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+                            </a>
+                            
+                            <!-- Google+ -->
+                            <a href="https://plus.google.com/share?url={{ request.url }}" target="_blank" rel="nofollow">
+                                <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
+                            </a>
+
+                            <!-- Twitter -->
+                            <a href="https://twitter.com/share?url={{ request.url }}" target="_blank" rel="nofollow">
+                                <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+                            </a>
+                        </div>
+                        <p class="info">This file is hosted at free file sharing service 4shared.</p>
+                    </p>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

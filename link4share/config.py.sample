@@ -1,0 +1,7 @@
+cookies = {
+    'Login':'', 
+    'Password':''
+}
+
+client_key = ''
+client_secret = ''

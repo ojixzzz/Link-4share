@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block title %}{{ data.judul }}{% endblock %}
+{% block content %}
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+                    <h2 class="post-title">
+                        Popular Files:
+                    </h2>
+                    <p class="post-meta">
+                        <ul>
+                            {% for file in data.files %}
+                            <li>
+                                <a href="{{ file.url }}"><h4>{{ file.name }}</h4></a>
+                                Upload Date : {{ file.date }} <br/>
+                                Size : {{ file.size }}<br/>
+                                Download count : {{ file.jumlah }} <br/>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </p>
+                </div>
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="previous">
+                        <a href="{{ url_for('random_page') }}">&larr; Random Files</a>
+                    </li>
+                    <li class="next">
+                        <a href="{{ url_for('recent_page') }}">Recent Files &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
